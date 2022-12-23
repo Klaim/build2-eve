@@ -1,12 +1,17 @@
 : 1
 name: eve
-version: 0.1.0-a.0.z
-summary: eve C++ library
-license: other: proprietary ; Not free/open source.
-description-file: README.md
-url: https://example.org/eve
-email: mjklaim@gmail.com
-#build-error-email: mjklaim@gmail.com
+version: 2022.9.1-a.0.z
+summary: eve - The Expressive Vector Engine (C++ library)
+license: BSL-1.0
+description-file: ./upstream/README.md
+url: https://jfalcou.github.io/eve/
+doc-url: https://jfalcou.github.io/eve/
+src-url:  https://github.com/jfalcou/eve/
+package-url: https://github.com/Klaim/build2-eve
+email: joel.falcou@lri.fr
+package-email: mjklaim@gmail.com
+
 depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
-#depends: libhello ^1.0.0
+
+
