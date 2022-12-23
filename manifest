@@ -17,3 +17,7 @@ depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
 
 depends: libboost-math ^1.75.0
+
+builds: latest
+build-exclude: windows**
+
