@@ -3,8 +3,6 @@ intf_libs = # Interface dependencies.
 
 lib{eve}: {hxx ixx txx}{** -version} hxx{version} $intf_libs
 
-hxx{version}: in{version} $src_root/manifest
-
 # Build options.
 #
 out_pfx = [dir_path] $out_root/include/
@@ -25,6 +23,6 @@ lib{eve}:
 #
 {hxx ixx txx}{*}:
 {
-  install         = include/eve/
+  install         = include/
   install.subdirs = true
 }
