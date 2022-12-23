@@ -1,0 +1,6 @@
+$out_root/
+{
+  include include/eve/
+}
+
+export $out_root/include/eve/$import.target
