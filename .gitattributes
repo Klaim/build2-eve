@@ -18,4 +18,4 @@
 #
 #*.png binary
 
-src include/eve=dir
+include/eve symlink=dir
