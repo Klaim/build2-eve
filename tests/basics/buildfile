@@ -1,3 +1,0 @@
-import libs = eve%lib{eve}
-
-exe{driver}: {hxx ixx txx cxx}{**} $libs testscript{**}

@@ -3,7 +3,7 @@ import eve = eve%lib{eve}
 for cpp_file : cxx{** -src/multi-arch/** -test/**}
 {
 	target_name = "$name($cpp_file)"
-	info "target_name = $target_name"
+	# info "target_name = $target_name"
 	./ : exe{$target_name} : $cpp_file $eve
 }
 

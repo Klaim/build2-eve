@@ -11,6 +11,8 @@ package-url: https://github.com/Klaim/build2-eve
 email: joel.falcou@lri.fr
 package-email: mjklaim@gmail.com
 
+requires: c++ >= 20
+
 depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
 
