@@ -1,7 +1,7 @@
 intf_libs = # Interface dependencies.
 #import xxxx_libs += libhello%lib{hello}
 
-lib{eve}: {hxx ixx txx}{** -version} hxx{version} $intf_libs
+lib{eve}: {hxx ixx txx}{**} $intf_libs
 
 # Build options.
 #

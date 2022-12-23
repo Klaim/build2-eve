@@ -1,35 +1,13 @@
-#include <sstream>
-#include <stdexcept>
+#include <iostream>
+#include <eve/wide.hpp>
+#include <eve/module/core.hpp>
 
-#include <eve/version.hpp>
-#include <eve/eve.hpp>
-
-#undef NDEBUG
-#include <cassert>
-
-int main ()
+int main()
 {
-  using namespace std;
-  using namespace eve;
+  eve::wide<float> x( [](auto i, auto) { return 1.f+i; } );
+  std::cout << "x     = " << x << "\n";
+  std::cout << "2*x   = " << x + x << "\n";
+  std::cout << "x^0.5 = " << eve::sqrt(x) << "\n";
 
-  // Basics.
-  //
-  {
-    ostringstream o;
-    say_hello (o, "World");
-    assert (o.str () == "Hello, World!\n");
-  }
-
-  // Empty name.
-  //
-  try
-  {
-    ostringstream o;
-    say_hello (o, "");
-    assert (false);
-  }
-  catch (const invalid_argument& e)
-  {
-    assert (e.what () == string ("empty name"));
-  }
+  return 0;
 }
