@@ -20,4 +20,5 @@
 
 include/eve symlink=dir
 examples/src symlink=dir
+examples/test symlink=dir
 tests/src symlink=dir
