@@ -19,3 +19,5 @@
 #*.png binary
 
 include/eve symlink=dir
+examples/src symlink=dir
+tests/src symlink=dir
