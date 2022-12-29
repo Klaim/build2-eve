@@ -21,7 +21,7 @@ for cpp_file : $tests_to_use
 	target_name = "$fixed_path$name($cpp_file)"
 	# info "target_name = $target_name
 	# names_to_test = "$names_to_test
-$target_name"
+# $target_name"
 	./ : exe{$target_name} : $cpp_file $dependencies
 }
 
