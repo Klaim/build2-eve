@@ -9,7 +9,7 @@ for cpp_file : cxx{** -src/exhaustive/** -src/random/**}
 	# Replace all `/` per `_` ...
     fixed_path = $regex.replace($fixed_path, '/', '_')
 	# Recombine to get the target name
-	target_name = "test_$fixed_path$name($cpp_file)"
+	target_name = "$fixed_path$name($cpp_file)"
 	# info "target_name = $target_name"
 	./ : exe{$target_name} : $cpp_file $dependencies
 }
