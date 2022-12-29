@@ -1,10 +1,17 @@
-import eve = eve%lib{eve}
+import dependencies = eve%lib{eve}
 
 for cpp_file : cxx{** -src/multi-arch/** -test/**}
 {
-	target_name = "$name($cpp_file)"
+	# Normalize the relative path to use only `/` ...
+	fixed_path = $regex.replace($directory($cpp_file), '\\', '/') 
+	# Remove the symlink part of the path ...
+    fixed_path = $regex.replace($fixed_path, '^(.*?)src\/', '')
+	# Replace all `/` per `_` ...
+    fixed_path = $regex.replace($fixed_path, '/', '_')
+	# Recombine to get the target name
+	target_name = "$fixed_path$name($cpp_file)"
 	# info "target_name = $target_name"
-	./ : exe{$target_name} : $cpp_file $eve
+	./ : exe{$target_name} : $cpp_file $dependencies
 }
 
 cxx.poptions =+ "-I$src_root/src" "-I$src_root/test"
