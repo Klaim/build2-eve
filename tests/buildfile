@@ -1,6 +1,15 @@
 import dependencies = eve%lib{eve} libboost-math%lib{boost_math}
 
-for cpp_file : cxx{** -src/exhaustive/** -src/random/**}
+all_tests = src/cxx{** -multi-arch/**}
+
+default_tests = src/unit/cxx{** -complex/** -module/complex/**} src/doc/cxx{** -complex/**}
+
+# TODO: add an option to activate all the tests
+tests_to_use = $default_tests
+
+names_to_test = 
+
+for cpp_file : $tests_to_use
 {
 	# Normalize the relative path to use only `/` ...
 	fixed_path = $regex.replace($directory($cpp_file), '\\', '/') 
@@ -10,9 +19,13 @@ for cpp_file : cxx{** -src/exhaustive/** -src/random/**}
     fixed_path = $regex.replace($fixed_path, '/', '_')
 	# Recombine to get the target name
 	target_name = "$fixed_path$name($cpp_file)"
-	# info "target_name = $target_name"
+	# info "target_name = $target_name
+	# names_to_test = "$names_to_test
+$target_name"
 	./ : exe{$target_name} : $cpp_file $dependencies
 }
+
+# info "test names: $names_to_test"
 
 cxx.poptions =+ "-I$src_root/src"
 
