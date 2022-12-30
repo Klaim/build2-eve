@@ -2,17 +2,18 @@ import dependencies = eve%lib{eve} libboost-math%lib{boost_math}
 
 all_tests = src/cxx{** -multi-arch/**}
 
-default_tests = src/unit/cxx{** -complex/** -module/complex/** -module/bessel/**} src/doc/cxx{** -complex/**}
+default_tests = src/unit/cxx{** -complex/** -module/complex/** -module/bessel/** -module/polynomial/** -module/elliptic/**} \
+	src/doc/cxx{** -complex/**}
 
 # TODO: add an option to activate all the tests
 tests_to_use = $default_tests
 
-names_to_test = 
+names_to_test =
 
 for cpp_file : $tests_to_use
 {
 	# Normalize the relative path to use only `/` ...
-	fixed_path = $regex.replace($directory($cpp_file), '\\', '/') 
+	fixed_path = $regex.replace($directory($cpp_file), '\\', '/')
 	# Remove the symlink part of the path ...
     fixed_path = $regex.replace($fixed_path, '^(.*?)src\/', '')
 	# Replace all `/` per `_` ...
