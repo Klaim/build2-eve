@@ -2,7 +2,7 @@ import dependencies = eve%lib{eve} libboost-math%lib{boost_math}
 
 all_tests = src/cxx{** -multi-arch/**}
 
-default_tests = src/unit/cxx{** -complex/** -module/complex/**} src/doc/cxx{** -complex/**}
+default_tests = src/unit/cxx{** -complex/** -module/complex/** -module/bessel/**} src/doc/cxx{** -complex/**}
 
 # TODO: add an option to activate all the tests
 tests_to_use = $default_tests
